@@ -1,6 +1,6 @@
 package com.omarsahl.puzzles
 
-import com.omarsahl.readFileInput
+import com.omarsahl.utils.readFileInput
 import kotlin.math.abs
 
 object Puzzle1 {
