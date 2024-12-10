@@ -1,7 +1,8 @@
 package com.omarsahl
 
-import com.omarsahl.puzzles.Puzzle9
+import com.omarsahl.puzzles.Puzzle10
 
 fun main() {
-    Puzzle9.part2()
+    Puzzle10.part1()
+    Puzzle10.part2()
 }

@@ -9,6 +9,10 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("org.openjdk.jol:jol-core:0.17")
+}
+
 tasks.test {
     useJUnitPlatform()
 }
