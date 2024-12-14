@@ -6,3 +6,5 @@ val Int.isEven: Boolean
 fun Long.isBitSet(index: Int): Boolean = (this shr index and 1) == 1L
 
 fun Long.setBit(index: Int) = this or (1L shl index)
+
+fun Double.isWholeNumber() = this == toLong().toDouble()
