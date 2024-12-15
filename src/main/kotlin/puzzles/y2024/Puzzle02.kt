@@ -1,22 +1,24 @@
 package com.omarsahl.puzzles.y2024
 
-import com.omarsahl.utils.readFileInput
+import com.omarsahl.base.Puzzle
+import java.nio.file.Path
+import kotlin.io.path.readLines
 
-object Puzzle02 {
+object Puzzle02 : Puzzle() {
 
-    fun part1() {
-        val lines = readFileInput("input2.txt")
+    override fun solvePart1(input: Path): Int {
+        val lines = input.readLines()
         val result = lines.count { line ->
             val numbers = line.split(" ").map(String::toInt)
             val result = numbers.allIncreasing() || numbers.allDecreasing()
             result
         }
 
-        println(result)
+        return result
     }
 
-    fun part2() {
-        val lines = readFileInput("input2.txt")
+    override fun solvePart2(input: Path): Int {
+        val lines = input.readLines()
         val result = lines.count { line ->
             val numbers = line.split(" ").map(String::toInt)
 
@@ -33,7 +35,7 @@ object Puzzle02 {
             reportSafe
         }
 
-        println(result)
+        return result
     }
 
     private fun List<Int>.allIncreasing(): Boolean {

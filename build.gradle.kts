@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("reflect"))
     implementation("org.openjdk.jol:jol-core:0.17")
 }
 

@@ -1,8 +1,10 @@
 package com.omarsahl.puzzles.y2024
 
-import com.omarsahl.utils.readFileInput
+import com.omarsahl.base.Puzzle
+import java.nio.file.Path
+import kotlin.io.path.readLines
 
-object Puzzle05 {
+object Puzzle05 : Puzzle() {
 
     private class Part1(input: List<String>) : AbstractPart(input) {
 
@@ -43,7 +45,7 @@ object Puzzle05 {
 
         protected val rules = mutableListOf<Pair<Int, Int>>()
 
-        fun run() {
+        fun run(): Int {
             var index = 0
             while (index < input.size) {
                 val line = input[index]
@@ -69,7 +71,7 @@ object Puzzle05 {
                 index++
             }
 
-            println(result)
+            return result
         }
 
         protected abstract fun getMiddlePage(pages: List<Int>, indicesMap: Map<Int, Int>): Int
@@ -92,13 +94,13 @@ object Puzzle05 {
         }
     }
 
-    fun part1() {
-        val input = readFileInput("input5.txt")
-        Part1(input).run()
+    override fun solvePart1(input: Path): Any {
+        val lines = input.readLines()
+        return Part1(lines).run()
     }
 
-    fun part2() {
-        val input = readFileInput("input5.txt")
-        Part2(input).run()
+    override fun solvePart2(input: Path): Any {
+        val lines = input.readLines()
+        return Part2(lines).run()
     }
 }

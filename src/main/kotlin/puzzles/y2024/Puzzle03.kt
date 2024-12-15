@@ -1,11 +1,13 @@
 package com.omarsahl.puzzles.y2024
 
-import com.omarsahl.utils.readFileInput
+import com.omarsahl.base.Puzzle
+import java.nio.file.Path
+import kotlin.io.path.readLines
 
-object Puzzle03 {
+object Puzzle03 : Puzzle() {
 
-    fun part1() {
-        val lines = readFileInput("input3.txt")
+    override fun solvePart1(input: Path): Long {
+        val lines = input.readLines()
 
         val regex = """mul\((\d{1,3},\d{1,3})\)""".toRegex()
         var result = 0L
@@ -16,16 +18,16 @@ object Puzzle03 {
             }
         }
 
-        println(result)
+        return result
     }
 
-    fun part2() {
-        val input = readFileInput("input3.txt")
+    override fun solvePart2(input: Path): Long {
+        val lines = input.readLines()
         val regex = """do\(\)|don't\(\)|mul\((\d{1,3},\d{1,3})\)""".toRegex()
         var result = 0L
         var isOn = true
 
-        input.forEach { line ->
+        lines.forEach { line ->
             regex.findAll(line).forEach { match ->
                 when (val value = match.value) {
                     "do()" -> isOn = true
@@ -40,6 +42,6 @@ object Puzzle03 {
             }
         }
 
-        println(result)
+        return result
     }
 }

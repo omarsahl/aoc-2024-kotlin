@@ -1,28 +1,25 @@
 package com.omarsahl.puzzles.y2024
 
-import com.omarsahl.utils.readFileInput
+import com.omarsahl.base.Puzzle
 import java.awt.image.BufferedImage
 import java.awt.image.IndexColorModel
 import java.io.File
 import java.nio.file.Path
 import javax.imageio.ImageIO
 import kotlin.io.path.createTempDirectory
+import kotlin.io.path.readLines
 import kotlin.math.floor
 
-object Puzzle14 {
+object Puzzle14 : Puzzle() {
 
     // 210587128
-    fun part1() {
-        val input = readFileInput("input14.txt")
-        val safetyFactor = HighlySecuredEBHQ(input).simulateRobotsMovement(100).calculateSafetyFactor()
-        println(safetyFactor)
-    }
+    override fun solvePart1(input: Path): Int =
+        HighlySecuredEBHQ(input.readLines()).simulateRobotsMovement(100).calculateSafetyFactor()
 
     // Snapshot number 7286
-    fun part2() {
-        val input = readFileInput("input14.txt")
-        val imagesDir = HighlySecuredEBHQ(input).snapshotRobotsMovement(10_000, 50)
-        println("Snapshots directory: $imagesDir")
+    override fun solvePart2(input: Path): String {
+        val imagesDir = HighlySecuredEBHQ(input.readLines()).snapshotRobotsMovement(10_000, 50)
+        return "Snapshots directory: $imagesDir"
     }
 
     private class HighlySecuredEBHQ(

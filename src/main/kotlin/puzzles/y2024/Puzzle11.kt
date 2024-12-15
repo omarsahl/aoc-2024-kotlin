@@ -1,17 +1,15 @@
 package com.omarsahl.puzzles.y2024
 
+import com.omarsahl.base.Puzzle
 import com.omarsahl.utils.isEven
-import com.omarsahl.utils.readString
+import java.nio.file.Path
+import kotlin.io.path.readText
 
-object Puzzle11 {
+object Puzzle11 : Puzzle() {
 
-    fun part1() {
-        blink(readStones(), 25).also(::println)
-    }
+    override fun solvePart1(input: Path): Any = blink(readStones(input), 25)
 
-    fun part2() {
-        blink(readStones(), 75).also(::println)
-    }
+    override fun solvePart2(input: Path): Any = blink(readStones(input), 75)
 
     private val cache = HashMap<Key, Long>()
 
@@ -27,7 +25,7 @@ object Puzzle11 {
         }
     }
 
-    private fun readStones(): List<Stone> = readString("input11.txt").split(" ").map(::Stone)
+    private fun readStones(input: Path): List<Stone> = input.readText().split(" ").map(::Stone)
 }
 
 private typealias Key = Pair<Stone, Int>

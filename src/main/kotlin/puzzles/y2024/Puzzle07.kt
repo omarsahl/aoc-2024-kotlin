@@ -1,32 +1,34 @@
 package com.omarsahl.puzzles.y2024
 
-import com.omarsahl.utils.readFileInput
+import com.omarsahl.base.Puzzle
+import java.nio.file.Path
+import kotlin.io.path.readLines
 import kotlin.math.pow
 
-object Puzzle07 {
+object Puzzle07 : Puzzle() {
 
     // 4555081946288
-    fun part1() {
-        val input = readFileInput("input7.txt")
+    override fun solvePart1(input: Path): Any {
+        val lines = input.readLines()
         var sum = 0L
-        for (equation in input) {
+        for (equation in lines) {
             val result = equation.substringBefore(':').toLong()
             val operands = equation.substringAfter(": ").split(" ").map(String::toLong)
             if (hasSolution(result, operands)) sum += result
         }
-        println(sum)
+        return sum
     }
 
     // 227921760109726
-    fun part2() {
-        val input = readFileInput("input7.txt")
+    override fun solvePart2(input: Path): Any {
+        val lines = input.readLines()
         var sum = 0L
-        for (equation in input) {
+        for (equation in lines) {
             val result = equation.substringBefore(':').toLong()
             val operands = equation.substringAfter(": ").split(" ").map(String::toLong)
             if (hasSolutionWithConcatenation(result, operands)) sum += result
         }
-        println(sum)
+        return sum
     }
 
     private fun hasSolution(target: Long, operands: List<Long>): Boolean {

@@ -1,8 +1,10 @@
 package com.omarsahl.puzzles.y2024
 
-import com.omarsahl.utils.readFileInput
+import com.omarsahl.base.Puzzle
+import java.nio.file.Path
+import kotlin.io.path.readLines
 
-object Puzzle04 {
+object Puzzle04 : Puzzle() {
 
     class Part1(private val grid: Array<CharArray>) {
         private val query = "XMAS"
@@ -18,7 +20,7 @@ object Puzzle04 {
             Pair(+1, -1),
         )
 
-        fun run() {
+        fun run(): Int {
             var result = 0
             for (y in boundaries) {
                 for (x in boundaries) {
@@ -29,7 +31,7 @@ object Puzzle04 {
                     }
                 }
             }
-            println(result)
+            return result
         }
 
         private fun expandInDirection(
@@ -53,10 +55,10 @@ object Puzzle04 {
         }
     }
 
-    fun part1() {
-        val input = readFileInput("input4.txt")
-        val grid = Array(input.size) { input[it].toCharArray() }
-        Part1(grid).run()
+    override fun solvePart1(input: Path): Any {
+        val lines = input.readLines()
+        val grid = Array(lines.size) { lines[it].toCharArray() }
+        return Part1(grid).run()
     }
 
     class Part2(private val grid: Array<CharArray>) {
@@ -74,7 +76,7 @@ object Puzzle04 {
         private val mas = charArrayOf('M', 'A', 'S')
         private val sam = charArrayOf('S', 'A', 'M')
 
-        fun run() {
+        fun run(): Int {
             var result = 0
             for (y in boundaries) {
                 for (x in boundaries) {
@@ -83,7 +85,7 @@ object Puzzle04 {
                     }
                 }
             }
-            println(result)
+            return result
         }
 
         private fun expandFromCenter(centerX: Int, centerY: Int): Boolean {
@@ -113,9 +115,9 @@ object Puzzle04 {
         }
     }
 
-    fun part2() {
-        val input = readFileInput("input4.txt")
-        val grid = Array(input.size) { input[it].toCharArray() }
-        Part2(grid).run()
+    override fun solvePart2(input: Path): Any {
+        val lines = input.readLines()
+        val grid = Array(lines.size) { lines[it].toCharArray() }
+        return Part2(grid).run()
     }
 }

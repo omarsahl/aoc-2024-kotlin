@@ -1,24 +1,24 @@
 package com.omarsahl.puzzles.y2024
 
+import com.omarsahl.base.Puzzle
 import com.omarsahl.utils.isBitSet
-import com.omarsahl.utils.readFileInput
 import com.omarsahl.utils.setBit
+import java.nio.file.Path
 import java.util.*
+import kotlin.io.path.readLines
 
-object Puzzle10 {
+object Puzzle10 : Puzzle() {
 
     // 737
-    fun part1() {
-        val input = readFileInput("input10.txt")
-        val totalScore = TopographicMap(input).getTotalTrailheadsScore()
-        println(totalScore)
+    override fun solvePart1(input: Path): Any {
+        val lines = input.readLines()
+        return TopographicMap(lines).getTotalTrailheadsScore()
     }
 
     // 1619
-    fun part2() {
-        val input = readFileInput("input10.txt")
-        val totalRating = TopographicMap(input).getTotalTrailheadsRating()
-        println(totalRating)
+    override fun solvePart2(input: Path): Any {
+        val lines = input.readLines()
+        return TopographicMap(lines).getTotalTrailheadsRating()
     }
 
     private class TopographicMap(input: List<String>) {

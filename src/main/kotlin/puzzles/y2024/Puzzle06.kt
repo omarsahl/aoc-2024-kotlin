@@ -1,19 +1,20 @@
 package com.omarsahl.puzzles.y2024
 
-import com.omarsahl.utils.readFileInput
+import com.omarsahl.base.Puzzle
+import java.nio.file.Path
+import kotlin.io.path.readLines
 
-object Puzzle06 {
+object Puzzle06 : Puzzle() {
 
-    fun part1() {
-        val input = readFileInput("input6.txt")
-        LabGrid(input).findGuardVisitedTilesCount().also(::println)
+    override fun solvePart1(input: Path): Any {
+        val lines = input.readLines()
+        return LabGrid(lines).findGuardVisitedTilesCount()
     }
 
-    fun part2() {
-        val input = readFileInput("input6.txt")
-        LabGrid(input).findPossibleObstacles().also(::println)
+    override fun solvePart2(input: Path): Any {
+        val lines = input.readLines()
+        return LabGrid(lines).findPossibleObstacles()
     }
-
 
     private enum class Direction(val dx: Int, val dy: Int) {
         Up(0, -1),
@@ -142,7 +143,6 @@ object Puzzle06 {
             block()
             setTileAt(x, y, Tile.Empty)
         }
-
 
         private fun getTileAt(x: Int, y: Int): Tile = grid.getOrNull(y)?.getOrNull(x).toTile()
 

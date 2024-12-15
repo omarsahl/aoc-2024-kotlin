@@ -1,20 +1,22 @@
 package com.omarsahl.puzzles.y2024
 
+import com.omarsahl.base.Puzzle
 import com.omarsahl.utils.isWholeNumber
-import com.omarsahl.utils.readFileInput
+import java.nio.file.Path
+import kotlin.io.path.readLines
 
-object Puzzle13 {
+object Puzzle13 : Puzzle() {
 
     // 39290
-    fun part1() {
-        val input = readFileInput("input13.txt")
-        getMachines(input).sumOf(ClawMachine::getMinimumTokens).also(::println)
+    override fun solvePart1(input: Path): Long {
+        val lines = input.readLines()
+        return getMachines(lines).sumOf(ClawMachine::getMinimumTokens)
     }
 
     // 73458657399094
-    fun part2() {
-        val input = readFileInput("input13.txt")
-        getMachines(input, 10000000000000L).sumOf(ClawMachine::getMinimumTokens).also(::println)
+    override fun solvePart2(input: Path): Long {
+        val lines = input.readLines()
+        return getMachines(lines, 10000000000000L).sumOf(ClawMachine::getMinimumTokens)
     }
 
     private fun getMachines(input: List<String>, prizeMultiplier: Long = 0): Sequence<ClawMachine> = sequence {

@@ -1,34 +1,30 @@
 package com.omarsahl.puzzles.y2024
 
+import com.omarsahl.base.Puzzle
 import com.omarsahl.utils.Log
-import com.omarsahl.utils.readFileInput
+import java.nio.file.Path
 import java.util.*
+import kotlin.io.path.readLines
 
-object Puzzle15 {
+object Puzzle15 : Puzzle() {
 
     // 1552879
-    fun part1() {
-        val (grid, moves) = parseInput()
-        Warehouse(grid, false, moves)
-            .apply(Warehouse::simulateRobotMoves)
-            .sumGpsCoordinates()
-            .also(::println)
+    override fun solvePart1(input: Path): Int {
+        val (grid, moves) = parseInput(input)
+        return Warehouse(grid, false, moves).apply(Warehouse::simulateRobotMoves).sumGpsCoordinates()
     }
 
     // 1561175
-    fun part2() {
-        val (grid, moves) = parseInput()
-        Warehouse(grid, true, moves)
-            .apply(Warehouse::simulateRobotMoves)
-            .sumGpsCoordinates()
-            .also(::println)
+    override fun solvePart2(input: Path): Int {
+        val (grid, moves) = parseInput(input)
+        return Warehouse(grid, true, moves).apply(Warehouse::simulateRobotMoves).sumGpsCoordinates()
     }
 
-    private fun parseInput(): Pair<Array<CharArray>, List<Direction>> {
-        val input = readFileInput("input15.txt")
-        val separatorIndex = input.indexOf("")
-        val gridInput = Array(separatorIndex) { input[it].toCharArray() }
-        val directions = input.subList(separatorIndex, input.size).joinToString("").map(Direction::fromChar)
+    private fun parseInput(input: Path): Pair<Array<CharArray>, List<Direction>> {
+        val lines = input.readLines()
+        val separatorIndex = lines.indexOf("")
+        val gridInput = Array(separatorIndex) { lines[it].toCharArray() }
+        val directions = lines.subList(separatorIndex, lines.size).joinToString("").map(Direction::fromChar)
         return gridInput to directions
     }
 

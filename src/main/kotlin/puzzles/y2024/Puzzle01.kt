@@ -1,16 +1,18 @@
 package com.omarsahl.puzzles.y2024
 
-import com.omarsahl.utils.readFileInput
+import com.omarsahl.base.Puzzle
+import java.nio.file.Path
+import kotlin.io.path.readLines
 import kotlin.math.abs
 
-object Puzzle01 {
+object Puzzle01 : Puzzle() {
 
-    fun part1() {
-        val input = readFileInput("input1.txt")
+    override fun solvePart1(input: Path): Any {
+        val lines = input.readLines()
+        val a1 = IntArray(lines.size)
+        val a2 = IntArray(lines.size)
 
-        val a1 = IntArray(input.size)
-        val a2 = IntArray(input.size)
-        input.forEachIndexed { index, str ->
+        lines.forEachIndexed { index, str ->
             a1[index] = str.substringBefore(" ").toInt()
             a2[index] = str.substringAfterLast(" ").toInt()
         }
@@ -24,21 +26,21 @@ object Puzzle01 {
             sum += abs(a1[i] - a2[i])
         }
 
-        println(sum)
+        return sum
     }
 
-    fun part2() {
-        val input = readFileInput("input1.txt")
-
-        val a1 = IntArray(input.size)
+    override fun solvePart2(input: Path): Any {
+        val lines = input.readLines()
+        val a1 = IntArray(lines.size)
         val lookup = mutableMapOf<Int, Int>()
-        input.forEachIndexed { index, str ->
+
+        lines.forEachIndexed { index, str ->
             a1[index] = str.substringBefore(" ").toInt()
             val x = str.substringAfterLast(" ").toInt()
             val count = lookup.getOrPut(x) { 0 }
             lookup[x] = count + 1
         }
 
-        a1.fold(0) { acc, x -> acc + x * lookup.getOrDefault(x, 0) }.also(::println)
+        return a1.fold(0) { acc, x -> acc + x * lookup.getOrDefault(x, 0) }
     }
 }

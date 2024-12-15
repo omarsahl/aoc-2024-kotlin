@@ -1,25 +1,25 @@
 package com.omarsahl.puzzles.y2024
 
+import com.omarsahl.base.Puzzle
 import com.omarsahl.utils.Log
 import com.omarsahl.utils.isEven
-import com.omarsahl.utils.readString
+import java.nio.file.Path
+import kotlin.io.path.readText
 
-object Puzzle09 {
+object Puzzle09 : Puzzle() {
 
     // 6307275788409
-    fun part1() {
-        val input = readString("input9.txt")
-        val diskMap = Disk(input).apply { compactWithFragmentation() }
-        val checksum = diskMap.computeChecksum()
-        println(checksum)
+    override fun solvePart1(input: Path): Long {
+        val text = input.readText()
+        val diskMap = Disk(text).apply { compactWithFragmentation() }
+        return diskMap.computeChecksum()
     }
 
     // 6327174563252
-    fun part2() {
-        val input = readString("input9.txt")
-        val diskMap = Disk(input).apply { compactWithoutFragmentation() }
-        val checksum = diskMap.computeChecksum()
-        println(checksum)
+    override fun solvePart2(input: Path): Long {
+        val text = input.readText()
+        val diskMap = Disk(text).apply { compactWithoutFragmentation() }
+        return diskMap.computeChecksum()
     }
 
     private class Disk(input: String) {

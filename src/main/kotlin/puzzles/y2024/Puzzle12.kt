@@ -1,22 +1,18 @@
 package com.omarsahl.puzzles.y2024
 
+import com.omarsahl.base.Puzzle
 import com.omarsahl.utils.Log
-import com.omarsahl.utils.readFileInput
+import java.nio.file.Path
 import java.util.*
+import kotlin.io.path.readLines
 
-object Puzzle12 {
+object Puzzle12 : Puzzle() {
 
     // 1477762
-    fun part1() {
-        val input = readFileInput("input12.txt")
-        Garden(input).calculateTotalFencePrice().also(::println)
-    }
+    override fun solvePart1(input: Path): Any = Garden(input.readLines()).calculateTotalFencePrice()
 
     // 923480
-    fun part2() {
-        val input = readFileInput("input12.txt")
-        Garden(input).calculateTotalFenceDiscountedPrice().also(::println)
-    }
+    override fun solvePart2(input: Path) = Garden(input.readLines()).calculateTotalFenceDiscountedPrice()
 
     private class Garden(input: List<String>) {
 

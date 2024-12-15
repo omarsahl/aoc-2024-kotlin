@@ -1,19 +1,21 @@
 package com.omarsahl.puzzles.y2024
 
-import com.omarsahl.utils.readFileInput
+import com.omarsahl.base.Puzzle
+import java.nio.file.Path
+import kotlin.io.path.readLines
 
-object Puzzle08 {
+object Puzzle08 : Puzzle() {
 
     // 276
-    fun part1() {
-        val input = readFileInput("input8.txt")
-        CityMap(input).findAllAntinodes().also(::println)
+    override fun solvePart1(input: Path): Any {
+        val lines = input.readLines()
+        return CityMap(lines).findAllAntinodes()
     }
 
     // 991
-    fun part2() {
-        val input = readFileInput("input8.txt")
-        CityMap(input).findAllAntinodesWithResonantHarmonics().also(::println)
+    override fun solvePart2(input: Path): Any {
+        val lines = input.readLines()
+        return CityMap(lines).findAllAntinodesWithResonantHarmonics()
     }
 
     private class CityMap(val input: List<String>) {
