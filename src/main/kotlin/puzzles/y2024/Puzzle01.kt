@@ -1,9 +1,9 @@
-package com.omarsahl.puzzles
+package com.omarsahl.puzzles.y2024
 
 import com.omarsahl.utils.readFileInput
 import kotlin.math.abs
 
-object Puzzle1 {
+object Puzzle01 {
 
     fun part1() {
         val input = readFileInput("input1.txt")

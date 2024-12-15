@@ -1,10 +1,10 @@
-package com.omarsahl.puzzles
+package com.omarsahl.puzzles.y2024
 
 import com.omarsahl.utils.Log
 import com.omarsahl.utils.isEven
 import com.omarsahl.utils.readString
 
-object Puzzle9 {
+object Puzzle09 {
 
     // 6307275788409
     fun part1() {

@@ -1,8 +1,8 @@
-package com.omarsahl.puzzles
+package com.omarsahl.puzzles.y2024
 
 import com.omarsahl.utils.readFileInput
 
-object Puzzle4 {
+object Puzzle04 {
 
     class Part1(private val grid: Array<CharArray>) {
         private val query = "XMAS"

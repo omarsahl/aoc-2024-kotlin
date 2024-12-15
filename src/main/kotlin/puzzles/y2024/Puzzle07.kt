@@ -1,9 +1,9 @@
-package com.omarsahl.puzzles
+package com.omarsahl.puzzles.y2024
 
 import com.omarsahl.utils.readFileInput
 import kotlin.math.pow
 
-object Puzzle7 {
+object Puzzle07 {
 
     // 4555081946288
     fun part1() {

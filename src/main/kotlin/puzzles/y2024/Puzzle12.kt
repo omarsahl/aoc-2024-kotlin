@@ -1,4 +1,4 @@
-package com.omarsahl.puzzles
+package com.omarsahl.puzzles.y2024
 
 import com.omarsahl.utils.Log
 import com.omarsahl.utils.readFileInput

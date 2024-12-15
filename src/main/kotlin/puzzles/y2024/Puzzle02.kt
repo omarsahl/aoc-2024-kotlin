@@ -1,8 +1,8 @@
-package com.omarsahl.puzzles
+package com.omarsahl.puzzles.y2024
 
 import com.omarsahl.utils.readFileInput
 
-object Puzzle2 {
+object Puzzle02 {
 
     fun part1() {
         val lines = readFileInput("input2.txt")

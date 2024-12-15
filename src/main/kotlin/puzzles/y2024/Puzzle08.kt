@@ -1,8 +1,8 @@
-package com.omarsahl.puzzles
+package com.omarsahl.puzzles.y2024
 
 import com.omarsahl.utils.readFileInput
 
-object Puzzle8 {
+object Puzzle08 {
 
     // 276
     fun part1() {

@@ -1,8 +1,8 @@
-package com.omarsahl.puzzles
+package com.omarsahl.puzzles.y2024
 
 import com.omarsahl.utils.readFileInput
 
-object Puzzle5 {
+object Puzzle05 {
 
     private class Part1(input: List<String>) : AbstractPart(input) {
 
